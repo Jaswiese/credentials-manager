@@ -7,6 +7,7 @@ import helmet from 'helmet';
 import mongoose from 'mongoose';
 
 import authRoute from './routes/auth.js';
+import unitRoute from './routes/units.js';
 
 const username = encodeURIComponent(process.env.mongo_username);
 const password = encodeURIComponent(process.env.mongo_password);
@@ -30,6 +31,7 @@ app.use(helmet());
 app.use(express.json());
 
 app.use('/auth', authRoute);
+app.use('/units', unitRoute);
 
 
 export default app;

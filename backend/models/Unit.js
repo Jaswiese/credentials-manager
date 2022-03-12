@@ -30,6 +30,7 @@ const UnitSchema = mongoose.Schema({
     type: String,
     required: true,
     lowercase: true,
+    unique: true,
   },
   divisions:[divisionsSchema]
 }, {collection: 'organisationUnits'} );
