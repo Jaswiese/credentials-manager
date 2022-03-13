@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+// import bootstrap components
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -11,6 +13,7 @@ import Button from 'react-bootstrap/Button';
  * @returns login window for the user requiring email & password details
  */
 function Login() {
+  const navigate = useNavigate();
   // local state used for login credentials
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -48,6 +51,7 @@ function Login() {
       if (result.status === 'ok') {
         alert('Login successful');
         localStorage.setItem('token', `Bearer ${result.data}`);
+        navigate('/dashboard');
       }
       if (result.status === 'error') {
         alert(result.message);

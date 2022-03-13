@@ -212,7 +212,7 @@ function Register() {
               <Form.Label>Name</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Jane Doe"
+                placeholder="Jane"
                 onChange={handleNameChange}
               />
               <Form.Text className="text-muted">

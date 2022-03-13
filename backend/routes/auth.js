@@ -3,7 +3,7 @@ import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import User from '../models/User.js';
 
-const { sign } = jwt;
+const { sign, verify } = jwt;
 
 const router = Router();
 
@@ -55,6 +55,23 @@ router.post('/login', async (req, res) => {
   }
   console.log('Incorrect login attempt for user:', email);
   return res.json({status: 'error', message: 'Invalid Credentials'});
+});
+// authenticate user used in client navigation (additional step)
+router.get('/auth-check', async (req, res) => {
+  const token = req.headers.authorization.split(' ')[1];
+  if(!token){
+    return res.status(401).json({status: 'error', message: 'Invalid Token'});
+  }
+  try {
+    const validatedToken = verify(token, process.env.JWT_SECRET);
+    if(validatedToken) { 
+      return res.status(200).json({status: 'ok', message: 'Token is valid', data: validatedToken});
+    };
+    return res.status(401).json({status: 'error', message: 'Invalid Token'});
+  } catch (err) {
+    console.log(err);
+    return res.status(401).json({status: 'error', message: 'Invalid Token'});
+  }
 });
 
 export default router;
