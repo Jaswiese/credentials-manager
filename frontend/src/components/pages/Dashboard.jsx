@@ -19,7 +19,11 @@ import '../../resources/css/formUI.css';
 import '../../resources/css/credentials.css';
 // usersUI styles
 import '../../resources/css/usersUI.css';
-
+/**
+ * Dashboard component
+ * renders a dashboard for the user to interact with org data
+ * @returns dashboard dependent components depending on user interaction and application state
+ */
 function Dashboard() {
   // dispatch variable assigned the useDispatch hook
   const dispatch = useDispatch();
