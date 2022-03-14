@@ -29,14 +29,31 @@ function Dashboard() {
   const addFormStatus = useSelector((state) => state.dashboard.addComponent);
   const viewUsers = useSelector((state) => state.dashboard.viewUsers);
   /**
-   * useEffect used to call the getOrgData on first,
+   * useEffect used to call the getOrgData on first render,
    * and when there is a change in the actions state
    */
   useEffect(() => {
     dispatch(getOrgData());
   }, [actionsStatus]);
-
+  // orgData is assigned the value of the orgUnits state
   const orgData = useSelector((state) => state.orgData.orgUnits);
+  /**
+   * Dashboard display
+   * bootstrap components & styles are used for layout
+   * nested JSX conditionals is used to display different components,
+   * depending on user interaction
+   * DashboardHeader component is displayed regardless of user interaction
+   * if user has selected to view the users
+   * the users component is rendered
+   * if not,
+   * conditional checks if the user has selected to add a credential
+   * if so,
+   * AddCredential component is render with the Controls component
+   * if not,
+   * Credentials component is render with the controls component
+   * a conditional is used to either load the Credentials or display a spinner,
+   * as the data is fetched.
+   */
   return (
     <Container fluid>
       <Row className="border-bottom">

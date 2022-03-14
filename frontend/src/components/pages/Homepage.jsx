@@ -1,6 +1,9 @@
 import React from 'react';
+// redux hook imported
 import { useSelector } from 'react-redux';
+// bootstrap component imported
 import Container from 'react-bootstrap/Container';
+// local components imported
 import Header from '../components/Header';
 import Register from '../components/Register';
 import Login from '../components/Login';
