@@ -77,7 +77,7 @@ function Credential({
       return (
         <button
           type="button"
-          className="btn btn-warning"
+          className="btn btn-warning btn-edit"
           onClick={() => toggleServiceEdit(!serviceEdit)}
         >
           Edit
@@ -90,7 +90,7 @@ function Credential({
           <input type="text" value={service} onChange={handleServiceChange} />
           <button
             type="button"
-            className="btn btn-warning"
+            className="btn btn-warning btn-edit"
             onClick={handleSubmit}
           >
             Submit
@@ -105,7 +105,7 @@ function Credential({
       return (
         <button
           type="button"
-          className="btn btn-warning"
+          className="btn btn-warning btn-edit"
           onClick={() => toggleUsernameEdit(!usernameEdit)}
         >
           Edit
@@ -115,14 +115,10 @@ function Credential({
     if ((management || admin) && usernameEdit) {
       return (
         <Row>
-          <input
-            type="text"
-            value={username}
-            onChange={() => handleUsernameChange}
-          />
+          <input type="text" value={username} onChange={handleUsernameChange} />
           <button
             type="button"
-            className="btn btn-warning"
+            className="btn btn-warning btn-edit"
             onClick={handleSubmit}
           >
             Submit
@@ -137,7 +133,7 @@ function Credential({
       return (
         <button
           type="button"
-          className="btn btn-warning"
+          className="btn btn-warning btn-edit"
           onClick={() => togglePasswordEdit(!passwordEdit)}
         >
           Edit
@@ -154,7 +150,7 @@ function Credential({
           />
           <button
             type="button"
-            className="btn btn-warning"
+            className="btn btn-warning btn-edit"
             onClick={handleSubmit}
           >
             Submit
@@ -165,24 +161,22 @@ function Credential({
   };
 
   return (
-    <Container>
-      <Row>
-        <Col className="col-md-12">
+    <div className="credentials-container-outer">
+      <Row className="credentials-container-inner">
+        <Col className="col-md-auto">
           <h5>Service: {serviceName}</h5>
           {dataStatus === 'success' && editDisplayService()}
         </Col>
-      </Row>
-      <Row>
-        <Col className="col-md-6">
+        <Col className="col-md-auto">
           <h5>username: {loginName}</h5>
           {dataStatus === 'success' && editDisplayUsername()}
         </Col>
-        <Col className="col-md-6">
+        <Col className="col-md-auto">
           <h5>password: {password}</h5>
           {dataStatus === 'success' && editDisplayPassword()}
         </Col>
       </Row>
-    </Container>
+    </div>
   );
 }
 

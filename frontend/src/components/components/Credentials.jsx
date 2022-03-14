@@ -47,18 +47,16 @@ function Credentials({ orgData }) {
           <Row>
             {isArrNotEmpty(newsManagementArr) && <h4>News management</h4>}
           </Row>
-          <Row>
-            <Col className="col-md-12">
-              {isArrNotEmpty(newsManagementArr) &&
-                newsManagementArr.map((newsCred) => (
-                  <Divisions
-                    key={(key += 1)}
-                    unitName={newsCred.unitName}
-                    divisions={newsCred.divisions}
-                    isArrNotEmpty={isArrNotEmpty}
-                  />
-                ))}
-            </Col>
+          <Row className=" d-flex justify-content-center">
+            {isArrNotEmpty(newsManagementArr) &&
+              newsManagementArr.map((newsCred) => (
+                <Divisions
+                  key={(key += 1)}
+                  unitName={newsCred.unitName}
+                  divisions={newsCred.divisions}
+                  isArrNotEmpty={isArrNotEmpty}
+                />
+              ))}
           </Row>
           <Row>
             {isArrNotEmpty(softwareReviewsArr) && <h4>Software Reviews</h4>}

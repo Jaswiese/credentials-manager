@@ -1,5 +1,10 @@
 import mongoose from 'mongoose';
-
+/**
+ * Unit schema model
+ * due to the nested nature of the model three 'models',
+ * were declared for added validation
+ */
+// credentials schema
 const credentialsSchema = new mongoose.Schema({
   serviceName: {
     type: String,
@@ -15,7 +20,7 @@ const credentialsSchema = new mongoose.Schema({
     required: true,
   },
 });
-
+// division schema
 const divisionsSchema = mongoose.Schema({
   divisionName: {
     type: String,
@@ -24,7 +29,7 @@ const divisionsSchema = mongoose.Schema({
   },
   credentials: [credentialsSchema]
 });
-
+// upper organisational unit schema
 const UnitSchema = mongoose.Schema({
   unitName: {
     type: String,

@@ -14,14 +14,6 @@ const initialState = {
  * setDefault is used to wipe the user data from the state
  * All other reducers set the state to the value of the action payload,
  * of their corresponding action/ state names.
- * {
-      orgUnit: '',
-      divisions: [
-        {
-          division: '',
-        },
-      ],
-    },
  */
 const userSlice = createSlice({
   name: 'user',

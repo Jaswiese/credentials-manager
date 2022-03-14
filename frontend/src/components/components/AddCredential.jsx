@@ -72,9 +72,9 @@ function AddCredential() {
     }
   };
   return (
-    <Container fluid className="add-credentials-container">
+    <Col className="col-md-8 border">
       <Row className="justify-content-center p-5">
-        <Col className="col-md-3 ui-form-outer">
+        <Col className="col-md-5 ui-form-outer">
           <Form className="p-5">
             <Form.Group className="mb-3" controlId="formOrgUnit">
               <Form.Label> Organisational Unit</Form.Label>
@@ -140,7 +140,7 @@ function AddCredential() {
           </Form>
         </Col>
       </Row>
-    </Container>
+    </Col>
   );
 }
 

@@ -6,7 +6,9 @@ import store from './redux/store/store';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+/**
+ * App component wrapped in the provider with the redux store as store prop
+ */
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>

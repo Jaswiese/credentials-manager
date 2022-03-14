@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 // react bootstrap components
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -9,6 +9,8 @@ import { toggleAdd } from '../../redux/features/dashboardSlice';
 function Controls() {
   // dispatch assigned the value of the useDispatch hook
   const dispatch = useDispatch();
+
+  const viewCredentials = useSelector((state) => state.dashboard.addComponent);
 
   const handleAddCredential = () => {
     dispatch(toggleAdd());
@@ -22,7 +24,7 @@ function Controls() {
             type="button"
             onClick={handleAddCredential}
           >
-            add credential
+            {viewCredentials ? 'view credentials' : 'add credential'}
           </button>
         </Col>
       </Row>

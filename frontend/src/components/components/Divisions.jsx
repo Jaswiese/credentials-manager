@@ -12,11 +12,11 @@ function Divisions({ unitName, divisions, isArrNotEmpty }) {
   let key = 0;
   return (
     <Container fluid>
-      <Row>
-        <h5>{divisionName}</h5>
+      <Row className="division-name-container">
+        <h5 className="division-name">{divisionName}</h5>
       </Row>
-      <Row>
-        <Col className="col-md-12">
+      <Row className="justify-content-center">
+        <Col className="col-md-12 credentials-container">
           {isArrNotEmpty(credentialsArr) &&
             credentialsArr.map((creds) => (
               <Credential
