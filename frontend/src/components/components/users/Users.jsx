@@ -42,7 +42,6 @@ function Users() {
    */
   useEffect(() => {
     dispatch(getUsers());
-    console.log('fired useEffect');
   }, [usersActions]);
   /**
    * displayUsers Controller
