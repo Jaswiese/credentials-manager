@@ -10,7 +10,10 @@ import Button from 'react-bootstrap/Button';
 // redux actions
 import { toggleAdd } from '../../redux/features/dashboardSlice';
 import { setActions } from '../../redux/features/orgUnitSlice';
-
+/**
+ *
+ * @returns a form that the user can use to add credentials
+ */
 function AddCredential() {
   // dispatch assigned the value of the useDispatch hook
   const dispatch = useDispatch();
@@ -20,7 +23,12 @@ function AddCredential() {
   const [service, setService] = useState('');
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
-
+  /*
+   *handle(input)Change functions
+   each handle function below fires
+   the corresponding local state set function
+   and sets the local state to the event value
+   * */
   const handleOrgUnitChange = (e) => {
     setOrgUnit(e.target.value);
   };
@@ -40,7 +48,17 @@ function AddCredential() {
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
   };
-
+  /**
+   * handleSubmission function
+   * this function submits the users entry data to the database
+   * the users token is retrieved from the local storage
+   * payload object is assigned the local state variables as attributes
+   * the fetch request is wrapped in a try catch block for error handling
+   * fetch request contains the token as header and payload as body
+   * if successful,
+   * the user is alerted and the setActions & toggleAdd actions are fired
+   * if not the error is logged to the console
+   */
   const handleSubmission = async () => {
     const token = localStorage.getItem('token');
     const payload = {
@@ -71,6 +89,12 @@ function AddCredential() {
       console.log(err);
     }
   };
+  /**
+   * bootstrap components are used for layout with some custom styling
+   * each Form.Control (input field) has an onChange event that fires,
+   * the corresponding handle(input)change function
+   * the submit button has an onClick event that fires the handleSubmission function
+   */
   return (
     <Col className="col-md-8 border">
       <Row className="justify-content-center p-5">
