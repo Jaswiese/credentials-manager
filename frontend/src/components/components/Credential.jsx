@@ -32,6 +32,11 @@ function Credential({
   );
   const admin = useSelector((state) => state.orgData.loggedUser.roles.admin);
   const dataStatus = useSelector((state) => state.orgData.status);
+  /**
+   * handle(input)Change function
+   * each handles function fires a local state setFunction
+   * that sets the local state to the event value
+   */
   const handleServiceChange = (e) => {
     setService(e.target.value);
   };
@@ -43,7 +48,17 @@ function Credential({
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
   };
-
+  /**
+   * handleSubmit function
+   * submits the updated service credentials to the database
+   * token is retrieved from the localStorage
+   * payload object is assigned the props and local state as attributes
+   * the fetch request is wrapped in a try catch block for error handling
+   * the headers contains the token
+   * and the body contains the payload
+   * if successful
+   * the user is alerted and the setActions action is fired
+   */
   const handleSubmit = async () => {
     const token = localStorage.getItem('token');
     const payload = {
@@ -70,7 +85,17 @@ function Credential({
       dispatch(setActions());
     }
   };
-
+  /**
+   * editDisplayService function
+   * the next display function duplicate logic, so the logic will be explained thoroughly here
+   * two conditionals are used to determine firstly if the user is management or an admin
+   * secondly to see if the user wants to edit the service
+   * if so,
+   * an input field and submit button is returned with an onChange event and onClick event
+   * if not an edit button
+   * if the user is not an admin or management nothing is returned
+   * @returns an Edit button or input field and submit button
+   */
   const editDisplayService = () => {
     if ((management || admin) && serviceEdit === false) {
       return (
@@ -98,7 +123,7 @@ function Credential({
       );
     }
   };
-
+  // editDisplayUsername function displays the username edit button or input field and submit button
   const editDisplayUsername = () => {
     if ((management || admin) && usernameEdit === false) {
       return (
@@ -126,7 +151,7 @@ function Credential({
       );
     }
   };
-
+  // editDisplayPassword function displays the password edit button or input field and submit button
   const editDisplayPassword = () => {
     if ((management || admin) && passwordEdit === false) {
       return (
@@ -158,7 +183,11 @@ function Credential({
       );
     }
   };
-
+  /**
+   * bootstrap styling & components are used in conjunction with custom styling for layout
+   * each credential data is displayed with props as text value
+   * further JSX conditional is used to check if the data has been retrieved and then the display controllers are called
+   */
   return (
     <div className="credentials-container-outer">
       <Row className="credentials-container-inner">
@@ -178,7 +207,7 @@ function Credential({
     </div>
   );
 }
-
+// prop type validation
 Credential.propTypes = {
   serviceName: PropTypes.string.isRequired,
   loginName: PropTypes.string.isRequired,
