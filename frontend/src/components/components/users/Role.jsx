@@ -1,9 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+// bootstrap component imported
 import Col from 'react-bootstrap/Col';
-
-function Role({ id, role, roleName }) {
+/**
+ * Role component
+ * @param {*} props role, roleName
+ * @returns user role data
+ */
+function Role({ role, roleName }) {
   return (
     <Col className="col-md-4">
       <h5>
@@ -12,9 +16,8 @@ function Role({ id, role, roleName }) {
     </Col>
   );
 }
-
+// props validation
 Role.propTypes = {
-  id: PropTypes.string.isRequired,
   role: PropTypes.bool.isRequired,
   roleName: PropTypes.string.isRequired,
 };

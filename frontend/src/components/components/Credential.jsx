@@ -16,7 +16,6 @@ function Credential({
   divisionName,
   unitName,
   password,
-  id,
 }) {
   // dispatch assigned the value of the useDispatch hook
   const dispatch = useDispatch();
@@ -44,7 +43,7 @@ function Credential({
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
   };
-  console.log(passwordState);
+
   const handleSubmit = async () => {
     const token = localStorage.getItem('token');
     const payload = {
@@ -186,6 +185,5 @@ Credential.propTypes = {
   divisionName: PropTypes.string.isRequired,
   unitName: PropTypes.string.isRequired,
   password: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
 };
 export default Credential;
