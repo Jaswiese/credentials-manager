@@ -56,7 +56,7 @@ JWT_SECRET = "your secret"
 ```
 ## Homepage
 
-![homepage]('./../readmeResources/homepage.png')
+![homepage]('./readmeResources/homepage.png')
 
 Login screen presented with the option to create a user
 
