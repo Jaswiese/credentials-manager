@@ -83,7 +83,7 @@ npm start
 
 navigate to localhost:3000 in your browser of choice to interact with the application
 
-*** Please note that you need both the backend and the frontend running for the application to function ***
+**Please note that you need both the backend and the frontend running for the application to function**
 
 ## Homepage
 
