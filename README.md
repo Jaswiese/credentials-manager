@@ -3,57 +3,86 @@
 
 A credentials manager with role permissions - built for a HyperionDev Capstone Task.
 This react application utilises the MERN stack to offer authentication with role based users, further
-all CRUD operations can be performed also constrained by roles.
+all CRUD operations can be performed  constrained by roles.
 
 
 ## Getting started
 
-### Backend start
-Run the command in the backend directory to start the webserver (needed for the api calls).
-```
-cd backend 
+## Run Locally
+
+Clone the project
 
 ```
-```
-npm start 
-
+  git clone https://github.com/Jaswiese/credentials-manager
 ```
 
-### Frontend start
+Go to the project directory
 
-Cd to the frontend directory, run the command below to start the frontend
+```
+  cd my-project
+```
+
+### Backend
+
+Go to the backend directory
+
+```
+  cd backend
+```
+Install dependencies
+
+```
+  npm install
+
+```
+Create a .env file in the root directory of the backend, use the following format for the file:
+
+```
+MONGO_USERNAME="your_username"
+MONGO_PASSWORD="your_password"
+PORT=5000
+JWT_SECRET="your_secret"
+
+```
+When you have successfully created the .env file you can now, start the backend,
+
+The command below will run the server with nodemon, allowing for automatic server restarts when the backend code changes:
+
+```
+  npm run devStart
+
+```
+If you do not need the nodemon functionality, you can run the following command instead:
+
+```
+  npm start 
+
+```
+### Frontend
+
+cd to the frontend directory
+
 ```
 cd frontend 
 
 ```
+Install the dependencies for the frontend, by running the following command:
+
+```
+npm install
+
+```
+To start the frontend, run the following command (in the frontend directory)
+
 ```
 npm start 
 
 ```
 
-### Dev start (backend)
-
-Cd to the backend directory and run the command below to initiate the dev server
-
-```
-npm run devStart
-
-```
 ## Usage
 
 navigate to localhost:3000 in your browser of choice to interact with the application
 
-#### Note
-
-a .env file should be created in the backend directory,
-in this format
-
-```
-MONGO_USERNAME = "your username"
-MONGO_PASSWORD = "your password"
-PORT = 5000
-JWT_SECRET = "your secret"
-```
 ## Homepage
 
 ![homepage]('./readmeResources/homepage.png')
