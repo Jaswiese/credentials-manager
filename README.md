@@ -83,9 +83,11 @@ npm start
 
 navigate to localhost:3000 in your browser of choice to interact with the application
 
+*** Please note that you need both the backend and the frontend running for the application to function ***
+
 ## Homepage
 
-![homepage]('./readmeResources/homepage.png')
+![homepage](./readmeResources/homepage.png)
 
 Login screen presented with the option to create a user
 
@@ -106,7 +108,7 @@ where credentials can be changed
 
 ## Users view
 ![usersDashboard](./readmeResources/users-dashboard.png)
-Users management view od the dashboard for admins,
+Users management view of the dashboard for admins,
 where roles & permissions can be altered
 ## License
 
