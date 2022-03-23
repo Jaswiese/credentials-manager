@@ -29,7 +29,7 @@ Go to the backend directory
 ```
   cd backend
 ```
-Install dependencies
+Install backend dependencies
 
 ```
   npm install
@@ -60,7 +60,7 @@ If you do not need the nodemon functionality, you can run the following command 
 ```
 ### Frontend
 
-cd to the frontend directory
+cd to the frontend directory, if you are in the root of the project the command should be:
 
 ```
 cd frontend 
